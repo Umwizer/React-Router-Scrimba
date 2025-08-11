@@ -1,11 +1,24 @@
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+
 function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <BrowserRouter>
+      <header>
+        <Link to="/">#VANLIFE</Link>
+        <nav>
+          <Link to="/about">About</Link>
+        </nav>
+      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
