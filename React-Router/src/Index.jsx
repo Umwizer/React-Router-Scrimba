@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import "./Server.js";
 import Vans from "./pages/Vans.jsx";
+import VanDetail from "./pages/VanDetail.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Vans" element={<Vans />}>
           {" "}
         </Route>
+        <Route path="/vans/:id" element={<VanDetail />} />
       </Routes>
     </BrowserRouter>
   );
