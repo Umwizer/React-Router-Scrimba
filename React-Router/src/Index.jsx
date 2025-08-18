@@ -15,15 +15,13 @@ function App() {
         </Link>
         <nav>
           <Link to="/about">About</Link>
-          <Link to="/Vans">Vans</Link>
+          <Link to="/vans">Vans</Link>
         </nav>
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/Vans" element={<Vans />}>
-          {" "}
-        </Route>
+        <Route path="/vans" element={<Vans />} />
         <Route path="/vans/:id" element={<VanDetail />} />
       </Routes>
     </BrowserRouter>
