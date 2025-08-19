@@ -11,6 +11,7 @@ import Layout from "./components/Layout.jsx";
 import Dashboard from "./pages/Host/Dashboard.jsx";
 import Income from "./pages/Host/Income.jsx";
 import Review from "./pages/Host/Review.jsx";
+import HostLayout from "./components/HostLayout.jsx";
 
 function App() {
   return (
@@ -18,12 +19,14 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/vans" element={<Vans />} />
-          <Route path="/vans/:id" element={<VanDetail />} />
-          <Route path="/host" element={<Dashboard />} />
-          <Route path="/host/income" element={<Income />} />
-          <Route path="/host/reviews" element={<Review />} />
+          <Route path="About" element={<About />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path="vans/:id" element={<VanDetail />} />
+          <Route path="host" element={<HostLayout />}>
+            <Route path="host" element={<Dashboard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="reviews" element={<Review />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
