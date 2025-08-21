@@ -14,7 +14,9 @@ import Review from "./pages/Host/Review.jsx";
 import HostVans from "./pages/Host/HostVans.jsx";
 import HostVanDetail from "./pages/Host/HostVanDetail.jsx"; // <-- missing import
 import HostLayout from "./components/HostLayout.jsx";
-
+import HostVanPhotos from "./pages/Host/HostVanPhotos.jsx";
+import HostVanPricing from "./pages/Host/HostVanPricing.jsx";
+import HostVanInfo from "./pages/Host/HostVanInfo.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -30,7 +32,11 @@ function App() {
             <Route path="income" element={<Income />} />
             <Route path="reviews" element={<Review />} />
             <Route path="vans" element={<HostVans />} />
-            <Route path="vans/:id" element={<HostVanDetail />} />
+            <Route path="vans/:id" element={<HostVanDetail />}>
+              <Route index element={<HostVanInfo />} />
+              <Route path="pricing" element={<HostVanPricing />} />
+              <Route path="photos" element={<HostVanPhotos />} />
+            </Route>
           </Route>
         </Route>
       </Routes>

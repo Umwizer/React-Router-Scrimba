@@ -1,7 +1,7 @@
 import React from "react";
 
 const HostVanPricing = () => {
-  return <div></div>;
+  return <h2>Pricing info goes here</h2>;
 };
 
 export default HostVanPricing;
