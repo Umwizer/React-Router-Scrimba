@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 export default function VanDetail() {
   const { id } = useParams();
   const [van, setVan] = useState(null);
+
+  const typeFilter = searchParams.get("type");
+  console.log(typeFilter);
   useEffect(() => {
     fetch(`/api/vans/${id}`)
       .then((res) => res.json())
