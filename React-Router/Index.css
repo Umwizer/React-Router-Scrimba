@@ -387,3 +387,31 @@ i[class*="van-type-"] {
   font-size: 20px;
   margin-block: 0;
 }
+.host-van-detail-nav {
+  display: flex;
+  margin-block: 25px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #4d4d4d;
+  font-weight: 500;
+  padding: 5px 20px;
+}
+
+.nav-link:first-of-type {
+  margin-left: -15px;
+}
+
+.nav-link:hover {
+  color: #161616;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+/* Active NavLink */
+.active-link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #161616;
+}
