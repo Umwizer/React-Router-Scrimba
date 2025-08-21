@@ -12,7 +12,7 @@ import Dashboard from "./pages/Host/Dashboard.jsx";
 import Income from "./pages/Host/Income.jsx";
 import Review from "./pages/Host/Review.jsx";
 import HostVans from "./pages/Host/HostVans.jsx";
-import HostVanDetail from "./pages/Host/HostVanDetail.jsx"; // <-- missing import
+import HostVanDetail from "./pages/Host/HostVanDetail.jsx";
 import HostLayout from "./components/HostLayout.jsx";
 import HostVanPhotos from "./pages/Host/HostVanPhotos.jsx";
 import HostVanPricing from "./pages/Host/HostVanPricing.jsx";

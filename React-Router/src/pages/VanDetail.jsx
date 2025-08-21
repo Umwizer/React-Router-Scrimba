@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-export default function VanDetail() {
-  const { id } = useParams();
-  const [van, setVan] = useState(null);
 
-  const typeFilter = searchParams.get("type");
-  console.log(typeFilter);
-  useEffect(() => {
-    fetch(`/api/vans/${id}`)
+export default function VanDetail() {
+  const params = useParams();
+  const [van, setVan] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch(`/api/vans/${params.id}`)
       .then((res) => res.json())
       .then((data) => setVan(data.vans));
-  }, [id]);
+  }, [params.id]);
+
   return (
     <div className="van-detail-container">
       {van ? (
