@@ -1,47 +1,47 @@
-import { React, useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { React, useState } from "react";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 import { getVans } from "../api";
+
+// Loader function
+export function loader() {
+  return getVans();
+}
 
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [vans, setVans] = useState([]);
-  const [loading, setloading] = useState(false);
+  // const [vans, setVans] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const typeFilter = searchParams.get("type");
-  console.log(searchParams.toString());
-  useEffect(() => {
-    async function loadVans() {
-      setloading(true);
-      try {
-        const data = await getVans();
-        setVans(data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setloading(false);
-      }
 
-      setloading(false);
-    }
-    loadVans();
-  }, []);
+  const typeFilter = searchParams.get("type");
+  const vans = useLoaderData() || []; // safe fallback
+
+  // useEffect for learning purposes
+  // React.useEffect(() => {
+  //   async function loadVans() {
+  //     setLoading(true);
+  //     try {
+  //       const data = await getVans();
+  //       setVans(data);
+  //     } catch (err) {
+  //       setError(err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  //   loadVans();
+  // }, []);
 
   function handleFilterChange(key, value) {
-    setSearchParams((prevParams) => {
-      if (value === null) {
-        prevParams.delete(key);
-      } else {
-        prevParams.set(key, value);
-      }
-      return prevParams;
-    });
+    const newParams = new URLSearchParams(searchParams);
+    if (value === null) newParams.delete(key);
+    else newParams.set(key, value);
+    setSearchParams(newParams);
   }
-  if (loading) {
-    return <h1 aria-live="polite">Loading ...</h1>;
-  }
-  if (error) {
+
+  // if (loading) return <h1 aria-live="polite">Loading ...</h1>;
+  if (error)
     return <h1 aria-live="assertive">There was an error: {error.message}</h1>;
-  }
 
   const displayedVans = typeFilter
     ? vans.filter((van) => van.type.toLowerCase() === typeFilter.toLowerCase())
@@ -74,7 +74,7 @@ export default function Vans() {
       <h1>Explore Our Vans Options</h1>
       <div className="van-list-filter-buttons">
         <button
-          onClick={() => setSearchParams("?type=simple")}
+          onClick={() => handleFilterChange("type", "simple")}
           className={`van-type simple ${
             typeFilter === "simple" ? "selected" : ""
           }`}
@@ -82,7 +82,7 @@ export default function Vans() {
           Simple
         </button>
         <button
-          onClick={() => setSearchParams("?type=luxury")}
+          onClick={() => handleFilterChange("type", "luxury")}
           className={`van-type luxury ${
             typeFilter === "luxury" ? "selected" : ""
           }`}
@@ -90,16 +90,22 @@ export default function Vans() {
           Luxury
         </button>
         <button
-          onClick={() => setSearchParams("?type=rugged")}
+          onClick={() => handleFilterChange("type", "rugged")}
           className={`van-type rugged ${
             typeFilter === "rugged" ? "selected" : ""
           }`}
         >
           Rugged
         </button>
-        <button onClick={() => handleFilterChange("type", null)}>
-          Clear filter
-        </button>
+
+        {typeFilter ? (
+          <button
+            onClick={() => handleFilterChange("type", null)}
+            className="van-type clear-filters"
+          >
+            Clear filter
+          </button>
+        ) : null}
       </div>
       <div className="van-list">{vanElements}</div>
     </div>

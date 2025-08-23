@@ -1,7 +1,3 @@
-Alright — I’ll walk you through **basic**, **intermediate**, and **advanced** explanations for each of your three questions so you not only get the syntax right but also deeply understand how it works.
-
----
-
 ## **1. What is a route/URL parameter?**
 
 ### **Basic**
@@ -182,84 +178,24 @@ That’s a common beginner-to-intermediate trap.
    as the parent route.
 
    NavLink
-   import React from "react";
-   import ReactDOM from "react-dom/client";
-   import { BrowserRouter, Routes, Route, NavLink, Outlet } from "react-router-dom";
 
-function Layout() {
-const activeStyle = {
-fontWeight: "bold",
-textDecoration: "underline",
-color: "red"
-}
+   1. When does the code in a loader function run?
 
-return (
-<div>
-<h3>Welcome to my page!</h3>
-<nav>
-<NavLink
-to="/"
-style={({isActive}) => isActive ? activeStyle : null } >
-Home
-</NavLink>
+Before the route change happens and the component for that route loads
 
-        <NavLink
-          to="/about"
-          style={({isActive}) => isActive ? activeStyle : null }
-        >
-          About
-        </NavLink>
+2. What are some benefits of using a data loader function
+   instead of fetching our data in a useEffect in a component?
+   - Don't need to worry about handling loading state in the
+     component
+   - Don't need to have lengthy/confusing useEffect code in our
+     component
+   - Don't need to handle error state in the component
+3. What change do we need to make to our BrowserRouter before
+   we can use loaders (or any of the new data-layer API features)
+   in our app?
 
-        <NavLink
-          to="/contact"
-          style={({isActive}) => isActive ? activeStyle : null }
-        >
-          Contact
-        </NavLink>
+   Get rid of the BrowserRouter component and use
+   createBrowserRouter() instead.
 
-      </nav>
-      <Outlet />
-    </div>
-
-)
-};
-
-function HomePage() {
-return (
-<main>
-<h2>Home</h2>
-</main>
-);
-}
-
-function AboutPage() {
-return (
-<main>
-<h2>About Me</h2>
-</main>
-);
-}
-
-function ContactPage() {
-return (
-<main>
-<h2>Contact</h2>
-</main>
-);
-}
-
-function App() {
-return (
-<BrowserRouter>
-<Routes>
-<Route path="/" element={<Layout />}>
-<Route index element={<HomePage />} />
-<Route path="about" element={<AboutPage />} />
-<Route path="contact" element={<ContactPage />} />
-</Route>
-</Routes>
-</BrowserRouter>
-)
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+4. What are the steps we need to take in order to use
+   a loader on any given route?
