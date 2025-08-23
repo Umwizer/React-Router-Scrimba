@@ -22,7 +22,7 @@ import HostLayout from "./components/HostLayout.jsx";
 import HostVanPhotos from "./pages/Host/HostVanPhotos.jsx";
 import HostVanPricing from "./pages/Host/HostVanPricing.jsx";
 import HostVanInfo from "./pages/Host/HostVanInfo.jsx";
-
+import NotFound from "./pages/NotFound.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
@@ -42,11 +42,12 @@ const router = createBrowserRouter(
           <Route path="photos" element={<HostVanPhotos />} />
         </Route>
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
 function App() {
-  return <ReactProvider route={router} />;
+  return <RouterProvider router={router} />;
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
