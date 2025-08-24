@@ -22,12 +22,18 @@ import HostVanPhotos from "./pages/Host/HostVanPhotos.jsx";
 import HostVanPricing from "./pages/Host/HostVanPricing.jsx";
 import HostVanInfo from "./pages/Host/HostVanInfo.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Error from "./components/ErrorPage.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="vans" element={<Vans />} loader={vansLoader} />
+      <Route
+        path="vans"
+        element={<Vans />}
+        errorElement={<Error />}
+        loader={vansLoader}
+      />
       <Route path="vans/:id" element={<VanDetail />} />
 
       <Route path="host" element={<HostLayout />}>
