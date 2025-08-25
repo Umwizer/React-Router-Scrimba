@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 
 const Login = () => {
   const [loginFormData, SetLoginFormData] = useState({
@@ -19,7 +19,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <h1>Sign In to Your Account </h1>
-      <Form onSubmit={handleSubmit} className="login-form">
+      <form onSubmit={handleSubmit} className="login-form">
         <input
           name="email"
           onChange={handleChange}
@@ -34,7 +34,7 @@ const Login = () => {
           value={loginFormData.password}
         />
         <button>Log In </button>
-      </Form>
+      </form>
     </div>
   );
 };

@@ -23,11 +23,14 @@ import HostVanPricing from "./pages/Host/HostVanPricing.jsx";
 import HostVanInfo from "./pages/Host/HostVanInfo.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Error from "./components/ErrorPage.jsx";
+import Login from "./pages/Login.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
+
       <Route path="about" element={<About />} />
+      <Route path="login" element={<Login />} />
       <Route
         path="vans"
         element={<Vans />}
