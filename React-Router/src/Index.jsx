@@ -40,14 +40,63 @@ const router = createBrowserRouter(
       <Route path="vans/:id" element={<VanDetail />} />
 
       <Route path="host" element={<HostLayout />}>
-        <Route index element={<Dashboard />} /> {/* default /host */}
-        <Route path="income" element={<Income />} />
-        <Route path="reviews" element={<Review />} />
-        <Route path="vans" element={<HostVans />} />
-        <Route path="vans/:id" element={<HostVanDetail />}>
-          <Route index element={<HostVanInfo />} />
-          <Route path="pricing" element={<HostVanPricing />} />
-          <Route path="photos" element={<HostVanPhotos />} />
+        <Route
+          index
+          element={<Dashboard />}
+          loader={async () => {
+            return null;
+          }}
+        />{" "}
+        {/* default /host */}
+        <Route
+          path="income"
+          element={<Income />}
+          loader={async () => {
+            return null;
+          }}
+        />
+        <Route
+          path="reviews"
+          element={<Review />}
+          loader={async () => {
+            return null;
+          }}
+        />
+        <Route
+          path="vans"
+          element={<HostVans />}
+          loader={async () => {
+            return null;
+          }}
+        />
+        <Route
+          path="vans/:id"
+          element={<HostVanDetail />}
+          loader={async () => {
+            return null;
+          }}
+        >
+          <Route
+            index
+            element={<HostVanInfo />}
+            loader={async () => {
+              return null;
+            }}
+          />
+          <Route
+            path="pricing"
+            element={<HostVanPricing />}
+            loader={async () => {
+              return null;
+            }}
+          />
+          <Route
+            path="photos"
+            element={<HostVanPhotos />}
+            loader={async () => {
+              return null;
+            }}
+          />
         </Route>
       </Route>
       <Route path="*" element={<NotFound />} />

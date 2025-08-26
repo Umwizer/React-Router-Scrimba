@@ -199,3 +199,11 @@ Before the route change happens and the component for that route loads
 
 4. What are the steps we need to take in order to use
    a loader on any given route?
+
+How did we change our route definitions in order to
+"protect" certain routes from an un-logged-in user?
+
+2. What component can we use to automatically send someone
+   to a different route in our app?
+
+3. What component can we render if the user IS logged in?
