@@ -15,7 +15,7 @@ import Layout from "./components/Layout.jsx";
 import Dashboard from "./pages/Host/Dashboard.jsx";
 import Income from "./pages/Host/Income.jsx";
 import Review from "./pages/Host/Review.jsx";
-import HostVans from "./pages/Host/HostVans.jsx";
+import HostVans, { loader as hostVansLoader } from "./pages/Host/HostVans.jsx";
 import HostVanDetail from "./pages/Host/HostVanDetail.jsx";
 import HostLayout from "./components/HostLayout.jsx";
 import HostVanPhotos from "./pages/Host/HostVanPhotos.jsx";
@@ -64,19 +64,11 @@ const router = createBrowserRouter(
             return null;
           }}
         />
-        <Route
-          path="vans"
-          element={<HostVans />}
-          loader={async () => {
-            return null;
-          }}
-        />
+        <Route path="vans" element={<HostVans />} loader={hostVansLoader} />
         <Route
           path="vans/:id"
           element={<HostVanDetail />}
-          loader={async () => {
-            return null;
-          }}
+          loader={hostVansLoader}
         >
           <Route
             index
