@@ -5,9 +5,11 @@ import App from "./App.jsx";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import userReducer from "./features/User.jsx";
+import themeReducer from "./features/Theme.jsx";
 const store = configureStore({
   reducer: {
     user: userReducer,
+    theme: themeReducer,
   },
 });
 

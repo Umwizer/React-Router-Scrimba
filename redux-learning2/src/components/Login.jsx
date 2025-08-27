@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { login } from "../features/User";
+import { login, logout } from "../features/User";
 const Login = () => {
   const dispatch = useDispatch();
   return (
@@ -10,6 +10,13 @@ const Login = () => {
         }}
       >
         Login
+      </button>
+      <button
+        onClick={() => {
+          dispatch(logout());
+        }}
+      >
+        Logout
       </button>
     </div>
   );
