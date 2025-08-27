@@ -24,6 +24,8 @@ import HostVanInfo from "./pages/Host/HostVanInfo.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Error from "./components/ErrorPage.jsx";
 import Login from "./pages/Login.jsx";
+import { getVans } from "./api.js";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
