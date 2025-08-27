@@ -7,7 +7,7 @@ import {
   useLoaderData,
 } from "react-router-dom";
 import { getHostVans } from "../../api";
-
+import { requireAuth } from "../../utils";
 export function loader({ params }) {
   return getHostVans(params.id);
 }
@@ -20,9 +20,6 @@ const activeStyles = {
 
 const HostVanDetail = () => {
   const currentVan = useLoaderData();
-  if (!currentVan) {
-    return <h1>Loading ...</h1>;
-  }
 
   return (
     <section>

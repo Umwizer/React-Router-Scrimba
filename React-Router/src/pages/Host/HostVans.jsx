@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../api";
-
+import { requireAuth } from "../../utils";
 export function loader() {
   return getHostVans();
 }
