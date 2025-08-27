@@ -10,7 +10,7 @@ import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import "./Server"; // starts MirageJS/mock server
 import Vans, { loader as vansLoader } from "./pages/Vans.jsx";
-import VanDetail from "./pages/VanDetail.jsx";
+import VanDetail, { loader as vanDetailLoader } from "./pages/VanDetail.jsx";
 import Layout from "./components/Layout.jsx";
 import Dashboard from "./pages/Host/Dashboard.jsx";
 import Income from "./pages/Host/Income.jsx";
@@ -39,7 +39,7 @@ const router = createBrowserRouter(
         errorElement={<Error />}
         loader={vansLoader}
       />
-      <Route path="vans/:id" element={<VanDetail />} />
+      <Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader} />
 
       <Route path="host" element={<HostLayout />}>
         <Route
