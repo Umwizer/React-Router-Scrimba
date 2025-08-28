@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import avatarIcon from "../assets/images/avatar-icon.png";
 export default function Login() {
   const [loginFormData, setLoginFormData] = useState({
     email: "",
