@@ -29,7 +29,7 @@ const NameTransferLists = () => {
       });
     }, 2000);
     return () => clearInterval(interval);
-  }, [firstList.length]);
+  }, [firstList.lengthx]);
 
   return (
     <div className="max-w-4xl mx-auto p-8">
